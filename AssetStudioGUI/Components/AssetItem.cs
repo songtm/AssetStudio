@@ -28,10 +28,16 @@ namespace AssetStudioGUI
 
         public void SetSubItems()
         {
+            var tex = Asset as Texture2D;
+            var format = "";
+            if (tex != null)
+            {
+                format = " " + tex.m_TextureFormat.ToString();
+            }
             SubItems.AddRange(new[]
             {
                 Container, //Container
-                TypeString, //Type
+                TypeString + format, //Type
                 m_PathID.ToString(), //PathID
                 FullSize.ToString(), //Size
             });
